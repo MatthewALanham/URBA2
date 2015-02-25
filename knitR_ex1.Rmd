@@ -1,0 +1,38 @@
+---
+title: "BusinessAnalytics"
+author: "Matthew A. Lanham"
+date: "Wednesday, February 25, 2015"
+output: html_document
+---
+### Obtain data
+##### Here I will fetch the data from the web and load it into R
+```{r getmydata, echo=TRUE}
+### DATA section
+## Task 2: Get data
+getwd()              # your working directory
+setwd("C:\\URBA")    # change your working directory
+
+## I commented out downloading the data here to save time!!
+# downloand data from github repo into your machine's working directory
+#download.file(url="https://raw.githubusercontent.com/MatthewALanham/URBA2/master/urba_pres_data.csv"
+#              , destfile="urba_pres_data.csv")
+# load data into R
+data = read.csv("urba_pres_data.csv")
+```
+
+### Begin data analysis
+##### Here I will begin the data analysis
+- Basic summaries
+- A historam of retail price
+```{r basicanalysis, echo=TRUE}
+## Task 3: Get data ready for analysis
+names(data)
+head(data, n=3)
+summary(data)                #summary of all variables
+summary(data$RETAIL_PRICE)   #five number summary for retail price only
+# a histogram of a variable
+hist(data$RETAIL_PRICE
+     ,main="Histogram of Retail Price"
+     ,xlab="Retail price ($)"
+     , col="lightblue")
+```
